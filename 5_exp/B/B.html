@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixed Horizontal Background Image</title>
+    <style>
+        body {
+            height: 2000px; /* to allow scrolling */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Horizontal fixed image */
+        .bg-image {
+            position: fixed;   /* stays in place */
+            top: 50%;          /* halfway down the viewport */
+            left: 50%;
+            transform: translate(-50%, -50%); /* center without tilt */
+            width: 500px;      /* adjust size */
+            height: auto;
+            z-index: -1;       /* behind content */
+        }
+
+        h1 {
+            text-align: center;
+            padding-top: 50px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Horizontal fixed image -->
+    <img src="image_1.jpg" alt="Background" class="bg-image">
+
+    <h1>Scroll down to see the effect</h1>
+    <p style="text-align:center;">The image stays horizontal and fixed while scrolling.</p>
+
+</body>
+</html>
