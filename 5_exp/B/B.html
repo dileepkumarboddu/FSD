@@ -2,44 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Water Background with Text</title>
+    <title>Tilted Watermark Example</title>
     <style>
         body {
             margin: 0;
+            height: 2000px; /* allow scrolling */
             font-family: Arial, sans-serif;
-            height: 100vh;
-            background-image: url("image_1.jpg"); /* replace with your water image */
-            background-size: cover;   /* cover entire screen */
-            background-position: center;
-            background-attachment: fixed; /* keeps image fixed on scroll */
-            color: white; /* text color on water background */
+            position: relative;
+        }
+
+        /* Watermark as pseudo-element */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;              /* halfway down */
+            left: 50%;
+            width: 500px;          /* watermark width */
+            height: 300px;         /* watermark height */
+            background: url("image_1.jpg") no-repeat center center;
+            background-size: contain;
+            transform: translate(-50%, -50%) rotate(-10deg); /* flip horizontally */
+            opacity: 0.2;          /* faint like watermark */
+            z-index: -1;           /* stays behind text */
+            pointer-events: none;  /* doesn't block clicks */
+        }
+
+        h1, p {
             text-align: center;
-        }
-        .overlay {
-            background: rgba(0, 0, 0, 0.4); /* optional dark overlay for readability */
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-        p {
-            font-size: 1.2em;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="overlay">
-        <h1>Scroll down to see the effect</h1>
-        <p>The water image stays fixed as background.</p>
-    </div>
-    <div style="height:1500px; background:#f9f9f9; color:#000; text-align:center; padding:50px;">
-        <h2>More Content Below</h2>
-        <p>Keep scrolling and the background water image stays in place.</p>
-    </div>
+    <h1>Tilted Watermark Example</h1>
+    <p>Scroll the page — the watermark stays fixed and horizontally tilted.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere dui ut dui eleifend, ut suscipit nulla hendrerit.</p>
+    <p>Keep scrolling… the tilted watermark remains halfway down the viewport.</p>
 </body>
 </html>
