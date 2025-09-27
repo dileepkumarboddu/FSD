@@ -2,40 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fixed Horizontal Background Image</title>
+    <title>Water Background with Text</title>
     <style>
         body {
-            height: 2000px; /* to allow scrolling */
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        /* Horizontal fixed image */
-        .bg-image {
-            position: fixed;   /* stays in place */
-            top: 50%;          /* halfway down the viewport */
-            left: 50%;
-            transform: translate(-50%, -50%); /* center without tilt */
-            width: 500px;      /* adjust size */
-            height: auto;
-            z-index: -1;       /* behind content */
-        }
-
-        h1 {
+            height: 100vh;
+            background-image: url("image_1.jpg"); /* replace with your water image */
+            background-size: cover;   /* cover entire screen */
+            background-position: center;
+            background-attachment: fixed; /* keeps image fixed on scroll */
+            color: white; /* text color on water background */
             text-align: center;
-            padding-top: 50px;
-            color: #333;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.4); /* optional dark overlay for readability */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        p {
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
-
-    <!-- Horizontal fixed image -->
-    <img src="image_1.jpg" alt="Background" class="bg-image">
-
-    <h1>Scroll down to see the effect</h1>
-    <p style="text-align:center;">The image stays horizontal and fixed while scrolling.</p>
-
+    <div class="overlay">
+        <h1>Scroll down to see the effect</h1>
+        <p>The water image stays fixed as background.</p>
+    </div>
+    <div style="height:1500px; background:#f9f9f9; color:#000; text-align:center; padding:50px;">
+        <h2>More Content Below</h2>
+        <p>Keep scrolling and the background water image stays in place.</p>
+    </div>
 </body>
 </html>
